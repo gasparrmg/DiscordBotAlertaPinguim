@@ -9,8 +9,12 @@
   "author": "Rafael Gaspar",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.5.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "youtube-notification": "^1.1.0"
+    "ffmpeg-static": "^4.2.8",
+    "youtube-notification": "^1.1.0",
+    "yt-search": "^2.7.5",
+    "ytdl-core": "^4.5.0"
   }
 }
