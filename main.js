@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 const prefix = '-';
 
-var config = require('./config.js');
+// var config = require('./config.js');
 
 client.once('ready', () => {
     console.log('Alerta pinguim já ao corrente da situação');
@@ -34,6 +34,5 @@ client.on('message', message => {
  * End of file
  */
 
-console.log(config.discord.login_key);
 
-client.login(config.discord.login_key);
+client.login(process.env.DISCORD_TOKEN);
