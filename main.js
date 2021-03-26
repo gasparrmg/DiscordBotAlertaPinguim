@@ -51,9 +51,15 @@ client.on('message', message => {
     }
 });
 
+client.on('voiceStateUpdate', (oldState, newState) => {
+    // check for bot
+    if (!newState.member.user.bot && newState.channel != null) {
+        client.commands.get('welcomesong').execute(newState.channel);
+    }
+});
+
 /**
  * End of file
  */
-
 
 client.login(process.env.DISCORD_TOKEN);
