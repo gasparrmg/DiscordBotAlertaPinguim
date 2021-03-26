@@ -41,7 +41,7 @@ module.exports = {
                 voiceChannel.leave();
             });
 
-            await message.channel.send('Zézoca, toma aí o som desse link');
+            await message.channel.send('Zézoca, toma aí o som desse link.');
 
             return;
         }
@@ -64,7 +64,7 @@ module.exports = {
                 voiceChannel.leave();
             });
 
-            await message.channel.send('Zézoca, toma aí a ' + video.title);
+            await message.channel.send('Zézoca, toma aí a ***' + video.title + '***');
         } else {
             message.channel.send('Estás a gozar comigo, zézoca?');
         }

@@ -9,6 +9,6 @@ module.exports = {
         }
 
         await voiceChannel.leave();
-        await message.channel.send('Até estava a curtir da companhia');
+        await message.channel.send('Até estava a curtir da companhia...');
     }
 }
