@@ -12,7 +12,9 @@ var welcomeSongs = [
 module.exports = {
     name: 'boas',
     description: 'Um pequeno olá do teu tio Riczão!',
-    async execute(voiceChannel) {
+    async execute(client, message, cmd, args, Discord) {
+
+        const voiceChannel = message.member.voice.channel;
 
         if (!voiceChannel) {
             return message.channel.send('Tens de estar num canal para me conseguires chamar, zézocas!');

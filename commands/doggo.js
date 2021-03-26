@@ -3,7 +3,7 @@ const Request = require("request");
 module.exports = {
     name: 'doggo',
     description: 'Mando-te um canito para te acalmares.',
-    async execute(message) {
+    async execute(client, message, cmd, args, Discord) {
         const channel = message.channel;
         
         Request.get("https://dog.ceo/api/breeds/image/random", (error, response, body) => {

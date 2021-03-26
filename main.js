@@ -1,28 +1,25 @@
 const dotenv = require('dotenv').config();
-
 const Discord = require('discord.js');
-
 const client = new Discord.Client();
 
-const prefix = '-';
-
-const fs = require('fs');
-
-var commandsHelp = {};
-
 client.commands = new Discord.Collection();
+client.events = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+['command_handler', 'event_handler'].forEach(handler => {
+    require(`./handlers/${handler}`)(client, Discord);
+});
+
+/*const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
     const command = require('./commands/' + file);
     client.commands.set(command.name, command)
     commandsHelp[command.name] = command.description;
-}
+}*/
 
 // var config = require('./config.js');
 
-client.once('ready', () => {
+/*client.once('ready', () => {
     console.log('Alerta pinguim já ao corrente da situação');
 
     // const channel = client.channels.cache.get('824720217187942443');
@@ -64,7 +61,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (!newState.member.user.bot && newState.channel !== null && oldState.channel === null) {
         client.commands.get('boas').execute(newState.channel);
     }
-});
+});*/
 
 /**
  * End of file
