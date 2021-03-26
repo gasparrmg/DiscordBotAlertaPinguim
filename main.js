@@ -58,7 +58,7 @@ client.on('message', message => {
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     if (!newState.member.user.bot && newState.channel !== null && oldState.channel === null) {
-        client.commands.get('welcomesong').execute(newState.channel);
+        client.commands.get('boas').execute(newState.channel);
     }
 });
 
