@@ -49,6 +49,8 @@ client.on('message', message => {
 
     if (command === 'deejay') {
         client.commands.get('deejay').execute(message, args);
+    } else if (command === 'calaaboca') {
+        client.commands.get('calaaboca').execute(message, args);
     } else if (command === 'ajuda') {
         client.commands.get('ajuda').execute(message, commandsHelp);
     } else if (command === 'boas') {

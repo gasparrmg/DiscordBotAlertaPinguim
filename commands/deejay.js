@@ -22,6 +22,30 @@ module.exports = {
             return message.channel.send('Tens de me dizer a música que queres que o Ric cante, né?');
         }
 
+        const validURL = (str) => {
+            var regex = /^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/;
+            if (!regex.test(str)) {
+                return false;
+            } else {
+                return true
+            }
+        }
+
+        if (validURL(args[0])) {
+
+            const connection = await voiceChannel.join();
+            const stream = ytdl(args[0], {filter: 'audioonly'});
+
+            connection.play(stream, {seek: 0, volume: 1})
+            .on('finish', () => {
+                voiceChannel.leave();
+            });
+
+            await message.channel.send('Zézoca, toma aí o som desse link');
+
+            return;
+        }
+
         const connection = await voiceChannel.join();
 
         const videoFinder = async (query) => {
