@@ -10,8 +10,8 @@ var welcomeSongs = [
 ];
 
 module.exports = {
-    name: 'welcomesong',
-    description: 'Welcome song',
+    name: 'boas',
+    description: 'Um pequeno olá do teu tio Riczão!',
     async execute(voiceChannel) {
 
         await voiceChannel.join().then(connection => {

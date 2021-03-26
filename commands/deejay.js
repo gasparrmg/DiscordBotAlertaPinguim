@@ -3,8 +3,8 @@ const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
 
 module.exports = {
-    name: 'play',
-    description: 'Joins and plays a video from youtube',
+    name: 'deejay',
+    description: 'O tio Ric canta-te uma musiquinha à tua escolha!',
     async execute(message, args) {
         const voiceChannel = message.member.voice.channel;
 
@@ -19,7 +19,7 @@ module.exports = {
         }
 
         if (!args.length) {
-            return message.channel.send('Tens de me dizer a música que queres que o Ric toque, né?');
+            return message.channel.send('Tens de me dizer a música que queres que o Ric cante, né?');
         }
 
         const connection = await voiceChannel.join();

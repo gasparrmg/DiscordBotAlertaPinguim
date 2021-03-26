@@ -8,6 +8,8 @@ const prefix = '-';
 
 const fs = require('fs');
 
+var commandsHelp = {};
+
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -15,6 +17,7 @@ const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith(
 for (const file of commandFiles) {
     const command = require('./commands/' + file);
     client.commands.set(command.name, command)
+    commandsHelp[command.name] = command.description;
 }
 
 // var config = require('./config.js');
@@ -44,16 +47,17 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'ping') {
-        message.channel.send('pong');
-    } else if (command === 'deejay') {
-        client.commands.get('play').execute(message, args);
+    if (command === 'deejay') {
+        client.commands.get('deejay').execute(message, args);
+    } else if (command === 'ajuda') {
+        client.commands.get('ajuda').execute(message, commandsHelp);
+    } else if (command === 'boas') {
+        client.commands.get('boas').execute(message.member.voice.channel);
     }
 });
 
 client.on('voiceStateUpdate', (oldState, newState) => {
-    
-    if (!newState.member.user.bot && newState.channel == undefined) {
+    if (!newState.member.user.bot && newState.channel !== null && oldState.channel === null) {
         client.commands.get('welcomesong').execute(newState.channel);
     }
 });
