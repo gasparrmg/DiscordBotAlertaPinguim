@@ -5,7 +5,8 @@ const ytSearch = require('yt-search');
 
 var welcomeSongs = [
     './audio/welcome_song.mp3',
-    './audio/welcome_song2.mp3'
+    './audio/welcome_song2.mp3',
+    './audio/welcome_song3.mp3'
 ];
 
 module.exports = {
