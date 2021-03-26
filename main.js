@@ -53,6 +53,8 @@ client.on('message', message => {
         client.commands.get('ajuda').execute(message, commandsHelp);
     } else if (command === 'boas') {
         client.commands.get('boas').execute(message.member.voice.channel);
+    } else if (command === 'doggo') {
+        client.commands.get('doggo').execute(message);
     }
 });
 
