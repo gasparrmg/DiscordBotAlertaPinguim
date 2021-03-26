@@ -14,6 +14,10 @@ module.exports = {
     description: 'Um pequeno olá do teu tio Riczão!',
     async execute(voiceChannel) {
 
+        if (!voiceChannel) {
+            return message.channel.send('Tens de estar num canal para me conseguires chamar, zézocas!');
+        }
+
         await voiceChannel.join().then(connection => {
             const dispatcher = connection.play(welcomeSongs[Math.floor(Math.random() * welcomeSongs.length)]);
 
