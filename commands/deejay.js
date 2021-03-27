@@ -11,6 +11,11 @@ module.exports = {
     description: 'O tio Ric canta-te uma musiquinha à tua escolha!',
     async execute(client, message, cmd, args, Discord){
 
+        if (message.channel.id != 825372583981481994) {
+            message.channel.send('Estás no canal errado para pedir música, zézoca!');
+            return;
+        }
+
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
         const voice_channel = message.member.voice.channel;
 
