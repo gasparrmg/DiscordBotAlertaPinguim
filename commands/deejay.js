@@ -23,7 +23,7 @@ module.exports = {
         const server_queue = queue.get(message.guild.id);
 
         //If the user has used the play command
-        if (cmd === 'deejaynew'){
+        if (cmd === 'deejay'){
 
             if (!args.length) return message.channel.send('Tens de me dizer a música que queres que o Ric cante, né?');
             let song = {};
