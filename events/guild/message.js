@@ -5,6 +5,11 @@ module.exports = (Discord, client, message) => {
         return;
     }
 
+    if (message.channel.id != 825372583981481994) {
+        message.channel.send('Estás no canal errado para falar comigo, zézoca!');
+        return;
+    }
+
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
 
